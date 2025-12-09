@@ -2,15 +2,6 @@
   #style.css
 \*-----------------------------------*/
 
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -127,7 +118,7 @@
 
 a { text-decoration: none; }
 
-li { list-style: none; }
+li { list-style: none; } /* THIS IS THE CULPRIT WE ARE FIGHTING AGAINST */
 
 img, ion-icon, a, button, time, span { display: block; }
 
@@ -292,7 +283,32 @@ article.active {
   z-index: -1;
 }
 
+/*-----------------------------------*\
+  #CODE BLOCK STYLING FOR TECHNICAL PROJECTS (NEW)
+\*-----------------------------------*/
 
+code, pre {
+  font-family: monospace, Consolas, "Courier New", Courier, Monospace;
+  font-size: var(--fs-6); 
+}
+
+pre {
+  background: var(--onyx); /* Darker background for code blocks */
+  color: var(--light-gray);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--jet);
+  overflow-x: auto; /* Ensure horizontal scroll for long lines */
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+code {
+  color: var(--orange-yellow-crayola); /* Highlight inline code */
+  background: var(--jet);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
 
 
 
@@ -509,8 +525,8 @@ main {
 
 
 /**
- * #service 
- */
+  * #service 
+  */
 
 .service { margin-bottom: 35px; }
 
@@ -557,8 +573,8 @@ main {
 
 
 /**
- * #testimonials 
- */
+  * #testimonials (NOTE: This section is typically removed in the HTML but kept here for template flexibility)
+  */
 
 .testimonials { margin-bottom: 30px; }
 
@@ -609,8 +625,8 @@ main {
 
 
 /**
- * #testimonials-modal
- */
+  * #testimonials-modal (NOTE: This section is typically removed in the HTML but kept here for template flexibility)
+  */
 
 .modal-container {
   position: fixed;
@@ -723,8 +739,8 @@ main {
 
 
 /**
- * #clients 
- */
+  * #clients (NOTE: This section is typically removed in the HTML but kept here for template flexibility)
+  */
 
 .clients { margin-bottom: 15px; }
 
@@ -768,8 +784,8 @@ main {
 
 
 /**
- * education and experience 
- */
+  * education and experience 
+  */
 
 .timeline { margin-bottom: 30px; }
 
@@ -831,45 +847,69 @@ main {
 
 
 /**
- * skills 
+ * skills (NEW STYLING FOR CATEGORIZED LIST)
  */
 
 .skills-title { margin-bottom: 20px; }
 
-.skills-list { padding: 20px; }
-
-
-.skills-item:not(:last-child) { margin-bottom: 15px; }
-
-.skill .title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
+/* --- CRITICAL FIX 1: Reset the parent UL and ensure it uses its own padding --- */
+.skills-list {
+  /* Inherited content-card styling provides background/borders */
+  
+  /* Layout: Grid ensures columns on wider screens */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 20px; 
+  
+  /* List Reset: Important to counteract "li {list-style: none}" inherited from the template */
+  list-style-type: none !important;
+  padding: 20px; /* Use padding for inner space */
 }
 
-.skill .title-wrapper data {
+.skills-list h5 {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  margin-top: 15px; 
+  margin-bottom: 5px;
+  
+  /* Fix for alignment in multi-column grid */
+  grid-column: 1 / -1; 
+}
+
+/* --- CRITICAL FIX 2: List Item Display --- */
+.skills-list li {
+  /* 1. Ensure Block & Bullet Display (CRITICAL) */
+  display: list-item !important; /* Forces the item to be a bulleted block */
+  list-style-type: disc !important; /* Makes the bullet visible */
+  list-style-position: outside !important; 
+  
+  /* 2. Style and Spacing */
   color: var(--light-gray);
-  font-size: var(--fs-7);
-  font-weight: var(--fw-300);
+  font-size: var(--fs-6);
+  line-height: 1.5;
+  
+  /* Vertical Spacing */
+  margin-bottom: 5px; 
+  
+  /* Horizontal Spacing (Indentation) */
+  /* This creates the space for the bullet and indent. */
+  margin-left: 25px !important; 
+  padding-left: 0; 
 }
 
-.skill-progress-bg {
-  background: var(--jet);
-  width: 100%;
-  height: 8px;
-  border-radius: 10px;
+/* Responsive adjustments for the new list */
+@media (min-width: 580px) {
+  .skills-list {
+    grid-template-columns: 1fr 1fr; /* Two columns for tablet view */
+  }
 }
 
-.skill-progress-fill {
-  background: var(--text-gradient-yellow);
-  height: 100%;
-  border-radius: inherit;
+@media (min-width: 1024px) {
+  .skills-list {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns for desktop view */
+  }
 }
-
-
-
-
 
 /*-----------------------------------*\
   #PORTFOLIO
@@ -1031,7 +1071,7 @@ main {
 
 
 /*-----------------------------------*\
-  #BLOG
+  #BLOG (NOTE: This section is typically removed in the HTML but kept here for template flexibility)
 \*-----------------------------------*/
 
 .blog-posts { margin-bottom: 10px; }
@@ -1230,8 +1270,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 \*-----------------------------------*/
 
 /**
- * responsive larger than 450px screen
- */
+  * responsive larger than 450px screen
+  */
 
 @media (min-width: 450px) {
 
@@ -1257,8 +1297,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /**
- * responsive larger than 580px screen
- */
+  * responsive larger than 580px screen
+  */
 
 @media (min-width: 580px) {
 
@@ -1269,8 +1309,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   :root {
 
     /**
-     * typography
-     */
+      * typography
+      */
 
     --fs-1: 32px;
     --fs-2: 24px;
@@ -1498,7 +1538,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     left: -43px;
   }
 
-  .skills-item:not(:last-child) { margin-bottom: 25px; }
+  .skills-item:not(:last-child) { margin-bottom: 25px; } /* Retaining this base style for .skills-item */
 
 
 
@@ -1546,8 +1586,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /**
- * responsive larger than 768px screen
- */
+  * responsive larger than 768px screen
+  */
 
 @media (min-width: 768px) {
 
@@ -1646,8 +1686,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /**
- * responsive larger than 1024px screen
- */
+  * responsive larger than 1024px screen
+  */
 
 @media (min-width: 1024px) {
 
@@ -1658,8 +1698,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   :root {
 
     /**
-    * shadow
-    */
+     * shadow
+     */
 
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
@@ -1761,8 +1801,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 /**
- * responsive larger than 1250px screen
- */
+  * responsive larger than 1250px screen
+  */
 
 @media (min-width: 1250px) {
 
@@ -1874,9 +1914,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-	 * RESUME
-	 */
+     * RESUME
+     */
 
   .timeline-text { max-width: 700px; }
-
-}
+}"

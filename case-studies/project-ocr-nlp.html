@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Marathi OCR + NLP | Pratham Badge</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css"> 
+  <link rel="shortcut icon" href="../assets/images/logo.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+    <article class="portfolio active" data-page="portfolio">
+
+      <header>
+        <a href="../index.html" class="h4" style="color: var(--orange-yellow-crayola); margin-bottom: 20px;">
+            ← Back to Portfolio
+        </a>
+        <h2 class="h2 article-title">Text Recognition: Marathi OCR + NLP System</h2>
+      </header>
+
+      <section class="about-text">
+        <p>
+          This project implements a complete pipeline for Handwritten Text Recognition using OCR and NLP, specifically targeting the complex Marathi script. Developed as part of my M.Tech in AI & Data Science (NFSU) coursework, the goal was to extract, clean, and process native language text from scanned documents to enable further linguistic analysis.
+        </p>
+
+        <p class="project-category" style="margin-top: 10px; font-weight: 500;">
+          Academic Context: CTMTAIDS SII P3 - Natural Language Processing (TA2 Assignment)
+        </p>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Problem & Objectives</h3>
+        </div>
+        <ul class="timeline-list" style="margin-left: 3;">
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Challenge: Native Language Handwritten Text</h4>
+            <p class="timeline-text">
+              The primary challenge was accurately recognizing Marathi handwritten characters, which requires robust preprocessing and fine-tuned OCR tools due to the complexity of the script and variations in handwriting.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Objective: End-to-End Linguistic Analysis</h4>
+            <p class="timeline-text">
+              Build a system capable of handling the entire lifecycle: image ingestion, text extraction (OCR), cleaning/tokenization (NLP), and finally, utility tasks like machine translation.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="skill">
+        <h3 class="h3 skills-title" style="margin-bottom: 20px;">Technical Stack & Methodology</h3>
+
+        <ul class="skills-list content-card">
+          <h5 class="h5">Core Technologies</h5>
+          <li>Python 3.10+ (Primary language)</li>
+          <li>Tesseract OCR (with Marathi Language Pack)</li>
+          <li>OpenCV (Image Preprocessing)</li>
+          <li>Indic NLP Library (Script-specific processing)</li>
+          <li>Deep Translator (Translation Utility)</li>
+        </ul>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Implementation Flow</h3>
+        </div>
+        <p class="timeline-text" style="margin-bottom: 20px;">
+            The solution was built sequentially across three stages:
+        </p>
+        <ol class="timeline-list" style="margin-left: 3;">
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Stage 1: Image Preprocessing (OpenCV)</h4>
+            <p class="timeline-text">
+              Applied techniques like thresholding and noise reduction using OpenCV to enhance the clarity of the handwritten text, significantly boosting Tesseract's recognition accuracy.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Stage 2: Optical Character Recognition (Tesseract)</h4>
+            <p class="timeline-text">
+              Tesseract was configured specifically for the Marathi language to accurately extract the raw Devanagari script from the prepared image.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Stage 3: Natural Language Processing (Indic NLP)</h4>
+            <p class="timeline-text">
+              The raw text output was processed using the Indic NLP Library to perform linguistic analysis, including tokenization (breaking text into words/units) and language detection validation.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Stage 4: Utility & Output (Deep Translator)</h4>
+            <p class="timeline-text">
+              The cleaned text was translated (e.g., Marathi to English) using Deep Translator, and the tokenized output was presented clearly in a tabular format (using Pandas).
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Results & Demonstration</h3>
+        </div>
+        
+        <p class="timeline-text" style="margin-bottom: 20px;">
+            The system achieved high fidelity in character extraction, successfully demonstrating the feasibility of building native language NLP systems on top of open-source OCR tools.
+        </p>
+
+        <h4 class="h4 timeline-item-title" style="margin-top: 25px;">Extracted & Translated Text Preview:</h4>
+        <pre>
+# Sample OCR Extraction (After Cleaning)
+आम्ही सारे भारतीय आहोत.
+
+# Sample Translation (Marathi to English)
+We are all Indians.
+        </pre>
+
+        <h4 class="h4 timeline-item-title" style="margin-top: 25px;">Tokenization Output Example:</h4>
+        <pre>
+| Index | Token |
+|-------|-------|
+| 1     | आम्ही |
+| 2     | सारे |
+| 3     | भारतीय |
+| 4     | आहोत |
+| 5     | .     |
+        </pre>
+
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Source Code & Demo</h3>
+        </div>
+        <p class="timeline-text">
+          Review the complete implementation details, code, and notebook files via the links below:
+        </p>
+        
+        <p style="margin-top: 20px;">
+          <a href="https://github.com/sinister-virus/marathi-ocr-nlp" class="contact-link" style="margin-right: 20px;">
+            <ion-icon name="logo-github" style="display: inline-block;"></ion-icon> View GitHub Repository
+          </a>
+          <a href="https://colab.research.google.com/drive/1H_gSiLA782Xl8C6yJXRqtekrumyioHhJ" class="contact-link" style="margin-right: 20px;">
+            <ion-icon name="flask-outline" style="display: inline-block;"></ion-icon> Run in Google Colab
+          </a>
+        </p>
+      </section>
+
+
+    </article>
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

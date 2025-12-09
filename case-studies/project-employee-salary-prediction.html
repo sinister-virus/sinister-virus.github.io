@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Employee Salary Prediction App | Pratham Badge</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="shortcut icon" href="../assets/images/logo.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+    <article class="portfolio active" data-page="portfolio">
+
+      <header>
+        <a href="../index.html" class="h4" style="color: var(--orange-yellow-crayola); margin-bottom: 20px;">
+            ← Back to Portfolio
+        </a>
+        <h2 class="h2 article-title">Employee Salary Prediction App (Regression & Streamlit)</h2>
+      </header>
+
+      <section class="about-text">
+        <p>
+          This project demonstrates the core machine learning workflow, from data preparation and model training to deployment in a user-friendly web application. The goal was to build a simple Regression Model capable of predicting employee salary based on key features (age, experience, education, etc.).
+        </p>
+
+        <p>
+          It serves as a practical showcase for implementing and deploying a scikit-learn model using Streamlit, illustrating foundational MLOps concepts and front-end development using Python libraries.
+        </p>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Problem & Model Selection</h3>
+        </div>
+        <ul class="timeline-list" style="margin-left: 3;">
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Problem: Regression Analysis</h4>
+            <p class="timeline-text">
+              The task is to predict a continuous numerical value (salary) based on input features, making it a classic Regression Problem.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Model: Linear Regression</h4>
+            <p class="timeline-text">
+              A Linear Regression model (trained using scikit-learn) was chosen for its interpretability and effectiveness in demonstrating fundamental predictive modeling principles.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="skill">
+        <h3 class="h3 skills-title" style="margin-bottom: 20px;">Technical Stack & Deployment</h3>
+
+        <ul class="skills-list content-card" style="cursor: default;">
+          <h5 class="h5">Model & Data Processing</h5>
+          <li>Python (Core language)</li>
+          <li>scikit-learn (Model training)</li>
+          <li>Pandas (Data loading and manipulation)</li>
+          <li>LabelEncoder (Handling categorical features like Job Title, Education)</li>
+          
+          <h5 class="h5">Deployment & Architecture</h5>
+          <li>Streamlit (Front-end web application framework)</li>
+          <li>Pickle (.pkl files) (Saving and loading the trained model and encoders)</li>
+          <li>MLOps Basics (Separation of model training and app serving logic)</li>
+        </ul>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Key Implementation Details</h3>
+        </div>
+        <ol class="timeline-list" style="margin-left: 3;">
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Encoder Persistence</h4>
+            <p class="timeline-text">
+              Ensured the `LabelEncoder` used for transforming categorical data was saved (`encoders.pkl`) alongside the model, guaranteeing consistent prediction input during deployment.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Streamlit UI Design</h4>
+            <p class="timeline-text">
+              The front-end (`app.py`) was designed with Streamlit to offer a clean, interactive dashboard where users can input parameters using sliders and dropdown menus for immediate salary estimation.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h4 class="h4 timeline-item-title">Modular Code Structure</h4>
+            <p class="timeline-text">
+              The project uses distinct files (`model_train.py`, `model.py`, `app.py`) for training, loading, and serving, which is a key practice for scalable MLOps.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="timeline" style="margin-top: 40px;">
+        <div class="title-wrapper">
+          <h3 class="h3">Source Code & Usage</h3>
+        </div>
+        <p class="timeline-text">
+          Review the Python code and model files, or learn how to run the application locally using Streamlit:
+        </p>
+        
+        <p style="margin-top: 20px;">
+          <a href="https://github.com/sinister-virus/employee-salary-prediction-streamlit.git" class="contact-link">
+            <ion-icon name="logo-github" style="display: inline-block;"></ion-icon> View Project Repository
+          </a>
+        </p>
+
+        <h4 class="h4 timeline-item-title" style="margin-top: 25px;">Local Execution Command:</h4>
+        <pre>
+git clone https://github.com/sinister-virus/employee-salary-prediction-streamlit.git
+pip install -r requirements.txt
+streamlit run app.py
+        </pre>
+      </section>
+
+
+    </article>
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
